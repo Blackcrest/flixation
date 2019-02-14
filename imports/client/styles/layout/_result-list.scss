@@ -1,0 +1,77 @@
+.result-list{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.tile {
+    width: calc(25% - 20px);
+    background: $color-white;
+    margin: 0 10px 10px;
+    transition: all .2s;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+
+    &__backdrop{
+        overflow: hidden;
+        position: relative;
+        height: 225px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        img {
+            position: absolute;
+            top: -9999px;
+            bottom: -9999px;
+            left: -9999px;
+            right: -9999px;
+            margin: auto;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%; height:100%;
+            top:0; left:0;
+            background:linear-gradient(transparent, rgba(0,0,0,0.2));
+        }   
+    }
+
+    &__information-block{
+        padding: 10px 15px;
+    }
+
+    &__title{
+        font-weight: 600;
+    }
+
+    &:hover{
+        transform: scale(1.1);
+        z-index: 10;
+    }
+
+    &--profile{
+        width: calc(20% - 20px);
+
+        & .tile__backdrop img{
+            width: 100%;
+        }
+    }
+
+    @include respond(big-desktop){
+        width: calc(20% - 20px);
+    }
+
+    @include respond(tab-land){
+        width: calc(33% - 20px);
+    }
+
+    @include respond(tab-port){
+        width: calc(50% - 20px);
+    }
+
+    @include respond(phone){
+        width: calc(100%);
+    }
+}

@@ -1,0 +1,32 @@
+.tab-control{
+    background: $color-secondary;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 $large-padding;
+
+    &__tab{
+        padding: $default-padding;
+        cursor: pointer;
+        color: $color-white;
+        text-align: center;
+    
+        &.selected{
+            background:$color-primary;
+        }
+
+        &:not(:last-child){
+            margin-right: $default-margin;
+        }
+    }
+
+    &__value{
+        font-size: $x-large-font-size;
+    }
+
+    &__name{
+
+    }
+}

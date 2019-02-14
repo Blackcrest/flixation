@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $main-font;
+    font-size: $default-font-size;
+    background-color: $color-grey;
+}
+
+input[type=text], input[type=email], input[type=password]{
+    font-size: $default-font-size;
+    padding: $default-padding;
+    border: 1px solid $color-grey;
+}

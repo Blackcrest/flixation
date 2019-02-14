@@ -1,0 +1,38 @@
+.header{
+    background: $color-primary;
+    color: $color-white;
+    position: fixed;
+    width: 120px;
+    height: 100vh;
+    z-index: 900;
+    top: 0;
+    left: 0;
+
+    &__content{
+        padding: $large-padding;
+        justify-content: flex-start;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+
+        & *{
+            margin-bottom: 0;
+        }
+    }
+
+    &__logo{
+        height: 120px;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__menu-container{
+        flex-grow: 1;
+    }
+
+    &__profile-control{
+        margin-left: auto;
+    }
+}
