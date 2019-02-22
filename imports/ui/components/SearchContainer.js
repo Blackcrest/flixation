@@ -6,8 +6,12 @@ export default class SearchContainer extends React.Component {
         super(props);
 
         this.state = {
-            query: ''
+            query: '',
         }
+    }
+
+    openSearchToggle = () => {
+        Session.set('isSearchOpen', !Session.get('isSearchOpen'));
     }
 
     onQueryChange = (e) => {
@@ -26,6 +30,8 @@ export default class SearchContainer extends React.Component {
                 this.setState({ query: '' });
 
                 this.refs.searchbar.blur();
+                
+                this.openSearchToggle();
             } else{
                 console.log('no query')
             }
@@ -35,12 +41,17 @@ export default class SearchContainer extends React.Component {
     render(){
         return(
             <div className="search-container">
+                <div className="search-container__title">
+                    <h2>Search for Movies, TV shows and more</h2>
+                </div>
                 <input type="text" 
+                       className="search-container__searchbar"
+                       id="searchbar"
                        ref="searchbar"
-                       placeholder="search for movies, tv shows keywords etc."
                        value={this.state.query}
                        onChange={this.onQueryChange}
                        onKeyDown={this.onKeyDown} />
+                <button className="button button--close search-container__button" onClick={this.openSearchToggle}>X</button>
             </div>
         )
     }

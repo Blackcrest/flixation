@@ -14,14 +14,20 @@ export default class Signup extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
 
+        let username = this.refs.username.value.trim();
         let email = this.refs.email.value.trim();
         let password = this.refs.password.value.trim();
+        let passwordConfirm = this.refs.passwordConfirm.value.trim();
 
         if(password.length < 9){
             return this.setState({error: 'Password must be more than 8 characters long.'});
         }
 
-        Accounts.createUser({email, password}, (err) => {
+        if(password !== passwordConfirm){
+            return this.setState({error: 'The passwords do not match.'});
+        }
+
+        Accounts.createUser({username, email, password}, (err) => {
             if(err) {
                 this.setState({error: err.reason});
             } else{
@@ -41,8 +47,10 @@ export default class Signup extends React.Component {
                         <h1>Join</h1>
 
                         <form className="boxed-view__form" onSubmit={(e) => this.onSubmit(e)} noValidate>
+                            <input type="text" ref="username" name="username" placeholder="Username" />
                             <input type="email" ref="email" name="email" placeholder="Email" />
                             <input type="password" ref="password" name="password" placeholder="Password" />
+                            <input type="password" ref="passwordConfirm" name="passwordConfirm" placeholder="Password Confirmation" />
                             <button className="button">Create Account</button>
                         </form>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PageHeader from '../components/PageHeader';
 import TabControl from '../components/TabControl/TabControl';
 import Overview from '../components/Overview/Overview';
 
@@ -102,15 +103,14 @@ export default class Search extends React.Component {
 
         return(
             <div className="content">
+                <PageHeader title={"Searching for '" + this.state.query + "'..."}
+                            subTitle={"FlixBot found the following results."}/>
                 <TabControl selectedTab={this.state.selectedTab}
                             items={[[this.state.searchResults[0].total_results, "Movies"],
                                     [this.state.searchResults[1].total_results, "TV Shows"],
                                     [this.state.searchResults[2].total_results, "People"]]}
                             callback={this.changeTab} />
                 <div id="result-container" className="result-container">
-                    <div className="result-container__message">
-                        Results of '{this.state.query}' in Movies.
-                    </div>
                     <Overview data={this.state.searchResults[this.state.selectedTab]} />
                 </div>
             </div>

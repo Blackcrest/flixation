@@ -13,8 +13,7 @@
 }
 
 .content{
-    padding: $large-padding;
-    position: relative;
+
 }
 
 .search-wrapper{
@@ -23,16 +22,22 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,.5);
+    background: rgba($color-primary, .9);
     z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all .3s ease;
 }
 
 .search-wrapper.search-open{
     display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .result-container{
-    margin-top: 50px;
+    padding: $huge-padding;
 
     &__message{
         padding: $default-padding;

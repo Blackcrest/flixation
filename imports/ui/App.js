@@ -8,14 +8,18 @@ import { routes } from '../routes/Routes';
 
 import Menu from './components/Menu';
 import SearchContainer from './components/SearchContainer';
-import Dashboard from './pages/Dashboard';
 
 import { Session } from 'meteor/session';
+import { Accounts } from 'meteor/accounts-base';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHeart, faEye, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+
+//add font-awesome icons
+library.add(faHeart, faEye, faPlusCircle)
 
 export default class App extends React.Component {
-    openSearchWrapper = () => {
-        console.log("Opening search...");
-
+    openSearchToggle = () => {
         Session.set('isSearchOpen', !Session.get('isSearchOpen'));
     }
 
@@ -23,16 +27,16 @@ export default class App extends React.Component {
         return(
             <div>
                 <Menu>
-                    <button className="button" onClick={this.openSearchWrapper}>
-                        Search
-                    </button>
                     <Router history={history}>
-                        <Link to='/discover'>
+                        <Link to='/'>
                             <button className="button">
-                                Discover
+                                Home
                             </button>
                         </Link>
                     </Router>
+                    <button className="button" onClick={this.openSearchToggle}>
+                        Search
+                    </button>
                     <Router history={history}>
                         <Link to='/browse'>
                             <button className="button">
@@ -40,20 +44,22 @@ export default class App extends React.Component {
                             </button>
                         </Link>
                     </Router>
-                    <Router history={history}>
-                        <Link to='/collection'>
-                            <button className="button">
-                                Collection
-                            </button>
-                        </Link>
-                    </Router>
-                    <Router history={history}>
-                        <Link to='/roulette'>
-                            <button className="button">
-                                Roulette
-                            </button>
-                        </Link>
-                    </Router>
+                    {Accounts.userId() ? <Router history={history}>
+                                            <Link to='/collection'>
+                                                <button className="button">
+                                                    Collection
+                                                </button>
+                                            </Link>
+                                            </Router> 
+                                        : undefined}
+                    {Accounts.userId() ? <Router history={history}>
+                                            <Link to='/roulette'>
+                                                <button className="button">
+                                                    Roulette
+                                                </button>
+                                            </Link>
+                                        </Router>
+                                        : undefined}
                 </Menu>
                 <div className="wrapper">
                     {routes}

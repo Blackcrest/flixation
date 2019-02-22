@@ -1,0 +1,84 @@
+.tile {
+    display: grid;
+    height: 100%;
+    background: $color-white;
+    margin: 0 15px 10px;
+    transition: all .2s;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+
+    &__backdrop{
+        overflow: hidden;
+        position: relative;
+        height: 280px;
+
+        img {
+            position: absolute;
+            top: -9999px;
+            bottom: -9999px;
+            left: -9999px;
+            right: -9999px;
+            margin: auto;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%; 
+            height:100%;
+            top:0; 
+            left:0;
+            background:linear-gradient(transparent, rgba(0,0,0,0.2));
+        }   
+    }
+
+    &__content-block{
+        color: $color-white;
+        position: relative;
+        z-index: 10;
+
+        &:after{
+            content: '';
+            position: absolute;
+            width: 100%; 
+            height: calc(100% + 65px);
+            top:-65px; 
+            left: 0;
+            right: 0;
+            background:linear-gradient(180deg, transparent 0%, #062F4F 25%, #083d67, 50%, #0a4b7e 100%);
+            z-index: -1;
+        }
+    }
+
+    &__information{
+        display: grid;
+        padding: 0 $default-padding;
+    }
+
+    &__title{
+        font-weight: 600;
+    }
+
+    &__action-bar{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        color: $color-white;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        padding: 1rem .5rem;
+    }
+
+    &:hover{
+        transform: scale(1.1);
+        z-index: 10;
+    }
+
+    &--profile{
+        width: calc(20% - 20px);
+
+        & .tile__backdrop img{
+            width: 100%;
+        }
+    }
+}

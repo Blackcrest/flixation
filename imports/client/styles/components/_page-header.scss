@@ -1,0 +1,16 @@
+.page-header{
+    width: 100%;
+    padding:  5rem $huge-padding $huge-padding;
+    background: linear-gradient(140deg, $color-primary 0%,
+                                $color-primary-light-1, 40%,
+                                $color-primary-light-2 100%);
+    color: $color-white;
+
+    &__title{
+        text-transform: uppercase;
+    }
+
+    &__sub-title{
+        color: $color-secondary-light;
+    }
+}

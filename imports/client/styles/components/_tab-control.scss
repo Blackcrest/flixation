@@ -1,20 +1,23 @@
 .tab-control{
-    background: $color-secondary;
+    background: $color-primary;
     width: 100%;
     display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 $large-padding;
+    padding: 0 $huge-padding;
 
     &__tab{
         padding: $default-padding;
         cursor: pointer;
         color: $color-white;
         text-align: center;
+        border-bottom: 5px solid transparent;
+
+        &:hover{
+            background: $color-primary-light-1; 
+        }
     
         &.selected{
-            background:$color-primary;
+            border-color: $color-secondary-light;
+            color: $color-white;
         }
 
         &:not(:last-child){

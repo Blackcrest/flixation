@@ -7,24 +7,33 @@ $color-white: #fff;
 $color-black: #000;
 
 $color-primary: #062F4F;
+$color-primary-light-1: #083d67;
+$color-primary-light-2: #0a4b7e;
+$color-primary-light-3: #0b5996;
+
 $color-secondary: #813722;
+$color-secondary-light: #cb5a3a;
 
 $color-error: #cc0000;
 
 // Font variables
 $main-font:  Montserrat,sans-serif;
+$second-font: 'Open Sans', sans-serif;
 
 $default-font-size: 1.4rem;
 $large-font-size: 1.8rem;
 $x-large-font-size: 2.4rem;
 
 // Margin variables
+$small-margin: 1rem;
 $default-margin: 1.4rem;
 
 // Padding variables
 $default-padding: 1rem;
+$medium-padding: 1.4rem;
 $large-padding: 1.6rem;
+$x-large-padding: 2rem;
+$huge-padding: 3rem;
 
 // Sizes
 $site-max-width: 108rem;
-$site-min-height: calc(100vh - 106px);

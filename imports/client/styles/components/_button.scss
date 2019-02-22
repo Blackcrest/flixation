@@ -21,6 +21,18 @@
     &--action{
         background: transparent;
         margin: 0;
+        font-size: 2.4rem;
+        padding: 0;
+        color: inherit;
+        width: 33%;
+
+        &:hover{
+            color: $color-secondary;
+        }
+    }
+
+    &--active{
+        color: green;
     }
 
     &--pill {

@@ -1,53 +1,9 @@
 .detail {
     width: 100%;
-    display: flex;
-    flex-direction: row;
 
-    &__information{
-        background: $color-white;
-    }
-
-    &__backdrop{
-        overflow: hidden;
-        position: relative;
-
-        img {
-            width: 100%;
-            position: absolute;
-            top: -9999px;
-            bottom: -9999px;
-            left: -9999px;
-            right: -9999px;
-            margin: auto;
-        }
-    }
-
-    &__sidebar{
-        background: $color-secondary;
-        min-width: 300px;
-        max-width: 300px;
-        min-height: $site-min-height;
-        padding: $large-padding;
-    }
-
-    &__content{
-        flex-grow: 1;
-    }
-
-    &__header{
-        color: $color-white;
-
-        &-content{
-            position: relative;
-            padding: $large-padding;
-        }
-    }
-
-    &__poster{
-
-        img{
-            width: 100%;
-        }
+    &__tags{
+        display: flex;
+        
     }
 
 }

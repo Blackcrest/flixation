@@ -10,14 +10,13 @@ import Roulette from '../ui/pages/Roulette';
 import Search from '../ui/pages/Search';
 import Detail from '../ui/pages/Detail';
 
-
 import Login from '../ui/pages/Login';
 import Signup from '../ui/pages/Signup';
 import Dashboard from '../ui/pages/Dashboard';
 import NotFound from '../ui/pages/NotFound';
 
-const unauthenticatedPages = ['/', '/signup'];
-const authenticatedPages = ['/dashboard'];
+const unauthenticatedPages = ['/', '/signup', '/discover', '/browse', '/search', '/detail'];
+const authenticatedPages = ['/dashboard', '/collection', '/roulette'];
 
 export const routes = (
     <Router history={history}>
@@ -31,6 +30,7 @@ export const routes = (
             <Route path="/detail" component={Detail} />
 
             <Route path="/" exact component={Home} />
+            <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/dashboard" component={Dashboard} />
             <Route component={NotFound} />
@@ -44,7 +44,7 @@ export const onAuthChange = (isAuthenticated) => {
     const isAuthenticatedPage = authenticatedPages.includes(pathname);
 
     if(isUnauthenticatedPage && isAuthenticated){
-        history.replace('/dashboard');
+        //history.replace('/collection');
     } else if(isAuthenticatedPage && !isAuthenticated){
         history.replace("/")
     }

@@ -18,17 +18,18 @@ import App from '../imports/ui/App'
         history.replace('/');
     }
 }
+*/
 
 Tracker.autorun(() => {
     const isAuthenticated = !!Meteor.userId();
     onAuthChange(isAuthenticated);
-});*/
+});
 
 Tracker.autorun(() => {
     const isSearchOpen = Session.get('isSearchOpen');
 
     const wrapper = document.getElementById('searchWrapper');
-
+    
     if(wrapper)
         wrapper.classList.toggle('search-open', isSearchOpen);
 })

@@ -1,5 +1,6 @@
+import { apiKey } from './apiKey';
+
 const baseUrl = 'https://api.themoviedb.org/3';
-const apiKey = "?api_key=89caec75c8fbb368ec1a96cb3a28e012";
 
 export const searchQuery = (query) => {
     const movies = fetch(baseUrl + '/search/movie' + apiKey + '&language=en-US&query="' + query)
